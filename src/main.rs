@@ -21,5 +21,7 @@ fn main() {
 
 	let code = fs::read_to_string(&in_path).expect("Failed to read input");
 	let tokens = lexer::tokenize(code);
-	println!("{:#?}", tokens);
+	println!("{:#?}\n", tokens);
+	let tree = parser::parse_tokens(tokens.clone().into());
+	println!("{:#?}", tree);
 }
